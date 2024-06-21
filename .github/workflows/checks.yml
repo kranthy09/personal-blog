@@ -22,7 +22,8 @@ jobs:
   print-username:
     runs-on: ubuntu-20.04
     env:
-      DOCKERHUB_USER: ${{secrets.DOCKERHUB_USER}}
+      username: ${{secrets.DOCKERHUB_USER}}
+      password: ${{ secrets.DOCKERHUB_TOKEN }}
     steps:
       - name: Debug
-        run: echo ${{env.DOCKERHUB_USER}}
+        run: echo "${{env.username}} and ${{env.password}}"
