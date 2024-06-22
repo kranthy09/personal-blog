@@ -7,29 +7,29 @@ services:
       args:
         - DEV=true
     ports:
-      - "8000:8000"
+      - "8080:8080"
     volumes:
       - ./app:/app
     command: >
       sh -c "python manage.py wait_for_db &&
              python manage.py migrate &&
-             python manage.py runserver 0.0.0.0:8000"
+             python manage.py runserver 0.0.0.0:8080"
     environment:
-      - DB_HOST=dbdrf
-      - DB_NAME=devdbrf
+      - DB_HOST=dbblog
+      - DB_NAME=devdbblog
       - DB_USER=devuser
       - DB_PASS=changeme
     depends_on:
-      - dbdrf
+      - dbblog
 
-  dbdrf:
+  dbblog:
     image: postgres:13-alpine
     volumes:
-      - dev-dbdrf-data:/var/lib/postgresql/data
+      - dev-dbblog-data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=devdbrf
+      - POSTGRES_DB=devdbblog
       - POSTGRES_USER=devuser
       - POSTGRES_PASSWORD=changeme
 
 volumes:
-  dev-dbdrf-data:
+  dev-dbblog-data:
