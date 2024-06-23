@@ -21,7 +21,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-63f=gpm4a%!_z7)v0yl7plk&=zrxgz-)b)5w*!ozxotfnpa-1z"
+SECRET_KEY = (
+    "django-insecure-63f=gpm4a%!_z7)v0yl7plk&=zrxgz-)b)5w*!ozxotfnpa-1z"
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -43,6 +45,7 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     "drf_spectacular",
     "user",
+    "blogcreator",
 ]
 
 MIDDLEWARE = [
