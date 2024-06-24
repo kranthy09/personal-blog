@@ -21,3 +21,10 @@ class BlogSerializer(serializers.ModelSerializer):
             "created_at",
         )
         read_only_fields = ("id", "created_at")
+
+
+class BlogDetailSerializer(BlogSerializer):
+    """Serializer for blog detail view."""
+
+    class Meta(BlogSerializer.Meta):
+        fields = BlogSerializer.Meta.fields
